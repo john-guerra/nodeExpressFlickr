@@ -1,18 +1,139 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import update from 'immutability-helper';
+//import AgregarItem from './agregarItem';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      stringToQuery: "",
+      componentMounted: false,
+      photos: [],
+      colors: ["red","orange", "yellow", "green", "blue","indigo", "violet" ],
+      rows: [0,1,2,3,4,5]
+    }
+  }
+
+  componentDidMount() {
+    this.setState({componentMounted: true})
+  }
+
+  makeQuery(color) {
+    console.log('ruta: /flickr/' + this.state.stringToQuery + " " + color);
+    fetch('/flickr/' + this.state.stringToQuery)
+      .then(function(response) {
+        if(response.ok) {
+          return response.json();
+        }
+        throw new Error('Network response was not ok.');
+      })
+      .then(function(data) {
+        console.log("Gotit!");
+        this.setState({photos: data.photos})
+      })
+      .catch(function(error) {
+        console.log('There has been a problem with your fetch operation: ' + error.message);
+      });
+  }
+
+  getUrl(ph) {
+    return "https://farm"+
+        ph.farm +
+        ".staticflickr.com/" +
+        ph.server +
+        "/"+
+        ph.id+
+        "_" +
+        ph.secret +
+        "_s.jpg";
+    }
+
+  changeQuery(newString){
+    this.setState({stringToQuery: newString});
+
+    if (this.state.componentMounted){
+      this.makeQuery('red');
+    }
+  }
+
   render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+    return(
+      <div>
+
+        <br />
+
+        <div className="row">
+          <h1>FLICKR RAINBOW</h1>
+          <p>
+            by: MCRG
+          </p>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+        <br />
+
+        <div className="row">
+          <input type="text" value={this.state.stringToQuery} onChange={(event) => { this.changeQuery(event.target.value) } } />
+          {/* Componente: Fotos
+          <div className="col-md-8 col-xs-12">
+            <ListarItems ref={(input) => { this.listarItemsChild = input; }} user={this.state.user} />
+          </div>
+          */}
+        </div>
+
+        {this.state.photos.map(function(ph) {
+          url = getUrl(ph);
+          return <img src=url alt="photo" style="width:200px;height:200px;">
+          return <img key={ph.id} className="text-center">{title}</th>;
+        })}
+
+        {/* <table>
+          <thead>
+            <tr>
+
+            </tr>
+          </thead>
+          <tbody>
+            {
+              this.state.photos != null &&
+              this.state.rows.map(function(row, i) {
+                return(
+                  <tr key={i}>
+                    {
+                      this.state.displayTableKeys.map(function(key, j) {
+                        if (this.state.formatsDisplayTableKeys[j] =='date'){
+                          var date = row[key].split('T')[0].split('-'); //2017-01-12
+                          return (
+                            <td key={key}>{date[2]}/{date[1]}/{date[0]}</td>
+                          );
+                        }
+                        else if (this.state.formatsDisplayTableKeys[j] =='money') {
+                          var money = Number(row[key]).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+                          return (
+                            <td key={key}>${money}</td>
+                          );
+                        }
+                        else{
+                          return (
+                            <td key={key}>{row[key]}</td>
+                          );
+                        }
+                        }, this)
+                    }
+                    <td className="text-center">
+                      {/*
+                      <button className="btn btn-info btn-xs" onClick={this.deleteItem.bind(this, row.id)}><span className="glyphicon glyphicon-edit"></span> Editar </button>
+                      <br />
+                      */}
+                      <button className="btn btn-danger btn-xs" onClick={this.deleteItem.bind(this, row._id)}><span className="glyphicon glyphicon-remove"></span> Eliminar </button>
+                    </td>
+                  </tr>
+                );
+              }, this)
+            }
+          </tbody>
+        </table> */}
+
       </div>
     );
   }

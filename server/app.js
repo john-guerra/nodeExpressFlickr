@@ -8,8 +8,8 @@ const fs = require("fs");
 const app = express();
 
 // Assumes that there are two files containing the keys
-// $PROJECT_HOME/server/api_key.txt
-// $PROJECT_HOME/server/api_secret.txt
+//$PROJECT_HOME/server/api_key.txt
+//$PROJECT_HOME/server/api_secret.txt
 function getApiKeys(callback, errorcallback) {
 	fs.readFile(path.resolve(__dirname,"./api_key.txt"), "utf-8", (err, api_key) => {
 		if (err) {
