@@ -10,6 +10,7 @@ class App extends Component {
       <div className="App">
         <PageHeader>Flickr Rainbow Wall <small>Search for an image and we'll sort it by color</small></PageHeader>
         <SearchBar></SearchBar>
+        <ImageWall></ImageWall>
       </div>
     );
   }
