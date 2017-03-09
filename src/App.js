@@ -81,58 +81,18 @@ class App extends Component {
           */}
         </div>
 
-        {this.state.photos.map(function(ph) {
-          url = getUrl(ph);
-          return <img src=url alt="photo" style="width:200px;height:200px;">
-          return <img key={ph.id} className="text-center">{title}</th>;
-        })}
-
-        {/* <table>
-          <thead>
-            <tr>
-
-            </tr>
-          </thead>
-          <tbody>
-            {
-              this.state.photos != null &&
-              this.state.rows.map(function(row, i) {
-                return(
-                  <tr key={i}>
-                    {
-                      this.state.displayTableKeys.map(function(key, j) {
-                        if (this.state.formatsDisplayTableKeys[j] =='date'){
-                          var date = row[key].split('T')[0].split('-'); //2017-01-12
-                          return (
-                            <td key={key}>{date[2]}/{date[1]}/{date[0]}</td>
-                          );
-                        }
-                        else if (this.state.formatsDisplayTableKeys[j] =='money') {
-                          var money = Number(row[key]).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-                          return (
-                            <td key={key}>${money}</td>
-                          );
-                        }
-                        else{
-                          return (
-                            <td key={key}>{row[key]}</td>
-                          );
-                        }
-                        }, this)
-                    }
-                    <td className="text-center">
-                      {/*
-                      <button className="btn btn-info btn-xs" onClick={this.deleteItem.bind(this, row.id)}><span className="glyphicon glyphicon-edit"></span> Editar </button>
-                      <br />
-                      */}
-                      <button className="btn btn-danger btn-xs" onClick={this.deleteItem.bind(this, row._id)}><span className="glyphicon glyphicon-remove"></span> Eliminar </button>
-                    </td>
-                  </tr>
-                );
-              }, this)
-            }
-          </tbody>
-        </table> */}
+        <div className="row">
+          <br />
+          {
+            this.state.photos.map(function(ph, i) {
+              var url = this.getUrl(ph);
+              return (
+                <img src={url} alt="photo" style="width:200px;height:200px;"></img>
+              );
+            }, this)
+          }
+          <br />
+        </div>
 
       </div>
     );
