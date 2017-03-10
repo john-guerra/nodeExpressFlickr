@@ -43,7 +43,6 @@ class App extends Component {
         var phs = this.state.photos;
         phs.push(data.photos.photo);
         this.setState({ photos: phs });
-        console.log("already push them" + this.state.photos);
       }.bind(this))
       .catch(function(error) {
         console.log('There has been a problem with your fetch operation: ' + error.message);
@@ -90,7 +89,7 @@ class App extends Component {
           <div className="col-md-2 col-xs-2"> </div>
           {
             this.state.colors.map(function(col, i) {
-              var photos_col = this.state.photos[col];
+              var photos_col = this.state.photos[i];
               return (
                 <div key={i} className="col-md-1 col-xs-1">
                   {
@@ -99,7 +98,7 @@ class App extends Component {
                       var url = this.getUrl(ph);
                       return (
                         <div>
-                          <img key={j} src={url} alt="result of column color" style={{width:"100vh"}}></img>
+                          <img key={j} src={url} alt="result of column color" style={{width:"100%"}}></img>
                           <br />
                         </div>
                       );
