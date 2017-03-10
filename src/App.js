@@ -77,10 +77,11 @@ class App extends Component {
 
         <div className="row">
           <div className="col-md-2 col-xs-2"> </div>
-          <div className="col-md-10 col-xs-10">
+          <div className="col-md-8 col-xs-8" style={{'textAlign':'center'}}>
             <h1>Flickr RAINBOW</h1>
-            <h4> by: <a target="_blank" href="https://mariacamilaremolinagutierrez.github.io/"> Maria Camila Remolina Gutiérrez </a> </h4>
+            <p>by: <a target="_blank" href="https://mariacamilaremolinagutierrez.github.io/"> Maria Camila Remolina Gutiérrez </a></p>
           </div>
+          <div className="col-md-2 col-xs-2"> </div>
         </div>
 
         <br />
