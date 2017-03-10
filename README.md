@@ -10,7 +10,7 @@ and it will take you to a larger size of it.
 The technologies used are: node + express + react + bootstrap + flickr's api.
 
 This app looks like this:
-![screenshot](/public/img/screenshot.jpg)
+![screenshot](https://raw.githubusercontent.com/mariacamilaremolinagutierrez/nodeExpressFlickr/master/public/img/screenshot.JPG)
 
 To use this:
 
