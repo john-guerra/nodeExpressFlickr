@@ -1,18 +1,21 @@
-# Node + Express + create-react-app + flickrApi Boilerplate
+# Exam 1 - WebDev Class @ Uniandes
 
-This is a simple project that helps bootstrap projects that use create-react-app + node + express + flickrapi
+This is my exam 1 for the webdev class. It consists of a search engine that display
+flickr images from a query but divides them into the 7 colors of the rainbow by columns.
 
-To use this boilerplate clone it:
+The creative addition is that the order of the colors is random and the website
+background color changes as the images appear by column.
+
+To use this:
 
 ```
-git clone https://github.com/john-guerra/nodeExpressFlickr.git myApp
-cd myApp
+git clone https://github.com/mariacamilaremolinagutierrez/nodeExpressFlickr.git flickr_rainbow
+cd flickr_rainbow
 echo "my_flickr_api_key" > server/api_key.txt
 echo "my_flickr_api_secret" > server/api_secret.txt
 npm install
 ```
 You can [get your Flickr api key and secrets here](https://www.flickr.com/services/apps/create/)
-
 
 Then compile the front-end into the build folder using
 
@@ -32,6 +35,7 @@ And open [http://localhost:9000](http://localhost:9000)
 * The [flickrapi node module documentation](https://www.npmjs.com/package/flickrapi)
 * And this [page that explains how to build the urls for the images](https://www.flickr.com/services/api/misc.urls.html)
 
+............
 
 This project was created following the instructions on [this great tutorial](https://medium.com/@patriciolpezjuri/using-create-react-app-with-react-router-express-js-8fa658bf892d#.34je0jd4l)
 
