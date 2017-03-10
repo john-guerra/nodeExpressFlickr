@@ -7,6 +7,8 @@ The creative addition is that the order of the colors is random and the website
 background color changes as the images appear by column. You can also click on each image
 and it will take you to a larger size of it.
 
+The technologies used are: node + express + react.
+
 To use this:
 
 ```

@@ -11,19 +11,7 @@ const app = express();
 //$PROJECT_HOME/server/api_key.txt
 //$PROJECT_HOME/server/api_secret.txt
 function getApiKeys(callback, errorcallback) {
-	fs.readFile(path.resolve(__dirname,"./api_key.txt"), "utf-8", (err, api_key) => {
-		if (err) {
-			errorcallback(err);
-			return;
-		}
-		fs.readFile(path.resolve(__dirname,"./api_secret.txt"), "utf-8",(err, api_secret) => {
-			if (err) {
-				errorcallback(err);
-				return;
-			}
-			callback(api_key, api_secret);
-		});
-	});
+	callback(process.env.API_KEY, process.env.API_SECRET);
 }
 
 // Setup logger
