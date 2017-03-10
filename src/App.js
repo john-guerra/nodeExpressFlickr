@@ -12,7 +12,7 @@ class App extends Component {
       photos: [],
       colors: ["red","orange", "yellow", "green", "blue","indigo","violet" ],
       colors_order: [],
-      background_color: "white"
+      background_color: "black"
     }
   }
 
@@ -57,7 +57,7 @@ class App extends Component {
 
   searchAll(){
     if (this.state.componentMounted){
-      this.setState({background_color: "white" });
+      this.setState({background_color: "black" });
       this.setState({photos: [] });
       this.setState({colors_order: [] });
       var i, c;
@@ -86,11 +86,22 @@ class App extends Component {
         <br />
 
         <div className="row">
-          <div className="col-md-2 col-xs-2"> </div>
-          <div className="col-md-10 col-xs-10">
-            <input type="text" value={this.state.stringToQuery} onChange={(event) => { this.setState({stringToQuery: event.target.value}) } } />
-            <button className="btn btn-primary btn-xs pull-right" onClick={this.searchAll.bind(this)}> Buscar </button>
+          <div className="col-md-4 col-xs-4"> </div>
+          <div className="col-md-4 col-xs-4">
+            <div className="row">
+              <div className="col-md-10 col-xs-10">
+                <input type="text" className="form-control" value={this.state.stringToQuery} onChange={(event) => { this.setState({stringToQuery: event.target.value}) } } />
+              </div>
+              <div className="col-md-2 col-xs-2">
+                <button className="btn btn-default" type="button" onClick={this.searchAll.bind(this)}> Search </button>
+              </div>
+            </div>
+            {/*
+              <input type="text" value={this.state.stringToQuery} onChange={(event) => { this.setState({stringToQuery: event.target.value}) } } />
+              <button className="btn btn-primary btn-xs pull-right" onClick={this.searchAll.bind(this)}> Buscar </button>
+            */}
           </div>
+          <div className="col-md-4 col-xs-4"> </div>
         </div>
 
         <br />
