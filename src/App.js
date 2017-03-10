@@ -79,7 +79,7 @@ class App extends Component {
           <div className="col-md-2 col-xs-2"> </div>
           <div className="col-md-10 col-xs-10">
             <h1>Flickr RAINBOW</h1>
-            <h4> by: Maria Camila Remolina Gutiérrez </h4>
+            <h4> by: <a target="_blank" href="https://mariacamilaremolinagutierrez.github.io/"> Maria Camila Remolina Gutiérrez </a> </h4>
           </div>
         </div>
 
@@ -107,9 +107,12 @@ class App extends Component {
                     photos_col != null &&
                     photos_col.map(function(ph, j) {
                       var url = this.getUrl(ph);
+                      var urlLarge = "https://farm"+ph.farm+".staticflickr.com/"+ph.server+"/"+ph.id+"_"+ph.secret+".jpg"
                       return (
                         <div>
-                          <img key={j} src={url} alt="result of column color" style={{width:"100%"}}></img>
+                          <a target="_blank" href={urlLarge}>
+                            <img key={j} src={url} alt="result of column color" style={{width:"100%"}}></img>
+                          </a>
                           <br />
                           <br />
                         </div>
