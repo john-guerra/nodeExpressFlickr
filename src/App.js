@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       stringToQuery: "",
       componentMounted: false,
-      photos: [[],[],[],[],[],[],[]],
+      photos: [],
       colors: ["red","orange", "yellow", "green", "blue","indigo","violet" ]
     }
   }
@@ -28,33 +28,36 @@ class App extends Component {
         "_" +
         ph.secret +
         "_s.jpg";
-    }
+  }
+
+  makeQuery(c){
+    fetch('/flickr/' + this.state.stringToQuery + "%20" + c)
+      .then(function(response) {
+        if(response.ok) {
+          return response.json();
+        }
+        throw new Error('Network response was not ok.');
+      }.bind(this))
+      .then(function(data) {
+        console.log("Got em! " + this.state.stringToQuery + " " + c);
+        var phs = this.state.photos;
+        phs.push(data.photos.photo);
+        this.setState({ photos: phs });
+        console.log("already push them" + this.state.photos);
+      }.bind(this))
+      .catch(function(error) {
+        console.log('There has been a problem with your fetch operation: ' + error.message);
+      });
+  }
 
   searchAll(){
     if (this.state.componentMounted){
+      this.setState({photos: [] });
       var i, c;
-      var newPhotos = [];
       for (i=0; i<7; i++){
         c = this.state.colors[i];
-        fetch('/flickr/' + this.state.stringToQuery)
-          .then(function(response) {
-            if(response.ok) {
-              return response.json();
-            }
-            throw new Error('Network response was not ok.');
-          }.bind(this))
-          .then(function(data) {
-            console.log("Got:" + this.state.stringToQuery + "%20" + c);
-            newPhotos.push(data.photos.photo);
-            //console.log("new pho: "+newPhotos);
-            if (i==6){
-              console.log("hago push de: "+newPhotos.lenght+" "+newPhotos[0].lenght);
-              this.setState({photos: newPhotos });
-            }
-          }.bind(this))
-          .catch(function(error) {
-            console.log('There has been a problem with your fetch operation: ' + error.message);
-          });
+        console.log("color: "+c+" "+i);
+        this.makeQuery(c);
       }
     }
   }
