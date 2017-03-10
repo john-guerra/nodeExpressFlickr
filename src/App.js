@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       stringToQuery: "",
       componentMounted: false,
-      photos: [
+      photos: {
         "red": [],
         "orange": [],
         "yellow": [],
@@ -17,9 +17,11 @@ class App extends Component {
         "blue": [],
         "indigo": [],
         "violet": []
-        ],
-      colors: ["red","orange", "yellow", "green", "blue","indigo", "violet" ]
+      },
+      colors: ["red","orange", "yellow", "green", "blue","indigo","violet" ]
     }
+
+    this.makeQuery = this.makeQuery.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +29,7 @@ class App extends Component {
   }
 
   makeQuery(color) {
-    console.log('ruta: /flickr/' + this.state.stringToQuery + " " + color);
+    console.log('ruta: /flickr/' + this.state.stringToQuery + "%20" + color);
     fetch('/flickr/' + this.state.stringToQuery)
       .then(function(response) {
         if(response.ok) {
@@ -36,12 +38,8 @@ class App extends Component {
         throw new Error('Network response was not ok.');
       })
       .then(function(data) {
-        console.log("Got em!");
-        this.setState({
-          photos: update(this.state.photos, {
-            color: {$set: data.photos.photo}
-          })
-        });
+        console.log("Got em!:"+this.state);
+        this.setState({photos: update(this.state.photos, {color: {$set: data.photos.photo}})});
       })
       .catch(function(error) {
         console.log('There has been a problem with your fetch operation: ' + error.message);
@@ -63,7 +61,7 @@ class App extends Component {
   searchAll(){
     if (this.state.componentMounted){
       var i, c;
-      for (i=0; i<this.state.colors.lenght; i++){
+      for (i=0; i<7; i++){
         c = this.state.colors[i];
         this.makeQuery(c);
       }
