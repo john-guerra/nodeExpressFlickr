@@ -9,41 +9,13 @@ class App extends Component {
     this.state = {
       stringToQuery: "",
       componentMounted: false,
-      photos: {
-        "red": [],
-        "orange": [],
-        "yellow": [],
-        "green": [],
-        "blue": [],
-        "indigo": [],
-        "violet": []
-      },
+      photos: [[],[],[],[],[],[],[]],
       colors: ["red","orange", "yellow", "green", "blue","indigo","violet" ]
     }
-
-    this.makeQuery = this.makeQuery.bind(this);
   }
 
   componentDidMount() {
     this.setState({componentMounted: true})
-  }
-
-  makeQuery(color) {
-    console.log('ruta: /flickr/' + this.state.stringToQuery + "%20" + color);
-    fetch('/flickr/' + this.state.stringToQuery)
-      .then(function(response) {
-        if(response.ok) {
-          return response.json();
-        }
-        throw new Error('Network response was not ok.');
-      })
-      .then(function(data) {
-        console.log("Got em!:"+this.state);
-        this.setState({photos: update(this.state.photos, {color: {$set: data.photos.photo}})});
-      })
-      .catch(function(error) {
-        console.log('There has been a problem with your fetch operation: ' + error.message);
-      });
   }
 
   getUrl(ph) {
@@ -61,9 +33,28 @@ class App extends Component {
   searchAll(){
     if (this.state.componentMounted){
       var i, c;
+      var newPhotos = [];
       for (i=0; i<7; i++){
         c = this.state.colors[i];
-        this.makeQuery(c);
+        fetch('/flickr/' + this.state.stringToQuery)
+          .then(function(response) {
+            if(response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }.bind(this))
+          .then(function(data) {
+            console.log("Got:" + this.state.stringToQuery + "%20" + c);
+            newPhotos.push(data.photos.photo);
+            //console.log("new pho: "+newPhotos);
+            if (i==6){
+              console.log("hago push de: "+newPhotos.lenght+" "+newPhotos[0].lenght);
+              this.setState({photos: newPhotos });
+            }
+          }.bind(this))
+          .catch(function(error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+          });
       }
     }
   }
@@ -75,15 +66,21 @@ class App extends Component {
         <br />
 
         <div className="row">
-          <h1>FLICKR RAINBOW</h1>
-          <h3> by: MCRG </h3>
+          <div className="col-md-2 col-xs-2"> </div>
+          <div className="col-md-10 col-xs-10">
+            <h1>FLICKR RAINBOW</h1>
+            <h3> by: MCRG </h3>
+          </div>
         </div>
 
         <br />
 
         <div className="row">
-          <input type="text" value={this.state.stringToQuery} onChange={(event) => { this.setState({stringToQuery: event.target.value}) } } />
-          <button className="btn btn-primary btn-xs pull-right" onClick={this.searchAll.bind(this)}> Buscar </button>
+          <div className="col-md-2 col-xs-2"> </div>
+          <div className="col-md-10 col-xs-10">
+            <input type="text" value={this.state.stringToQuery} onChange={(event) => { this.setState({stringToQuery: event.target.value}) } } />
+            <button className="btn btn-primary btn-xs pull-right" onClick={this.searchAll.bind(this)}> Buscar </button>
+          </div>
         </div>
 
         <div className="row">
