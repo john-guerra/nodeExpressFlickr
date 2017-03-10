@@ -1,32 +1,35 @@
 import React from 'react';
-import Lightbox from 'react-images';
+import Gallery from 'react-photo-gallery';
 
 class ImageWall extends React.Component {
 
-  constructor(props) {
-    super(props);
-    props = {
-        images:[{'src':'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/St_Louis_night_expblend_cropped.jpg/240px-St_Louis_night_expblend_cropped.jpg'}]
+    // constructor(props)
+    // {
+    //     super(props);
+    //     // console.log(props);
+    //     // this.state = {
+    //     //     lightboxIsOpen:true,
+    //     // };
+    //     // this.setState(props);
+    // }
+
+
+    render() {
+        // if(this.props.images){
+            return (
+                  <div className="container">
+                      <div className="row">
+                            <div className="image-wall">
+                                <Gallery cols={7} photos={this.props.images} onClickPhoto={this.props.clickp}/>
+                            </div>
+                      </div>
+                  </div>
+            );
+        // }
+        // else {
+        //     return(<div></div>);
+        // }
     }
-  }
-
-  close() {
-
-  }
-
-  render() {
-    if(this.props.images)
-    {
-        return (
-          <div className="container">
-              <Lightbox images={this.props.images} onclose={() => this.close.bind(this)} />
-          </div>
-        );
-    }
-    return (
-        <div></div>
-    )
-  }
 }
 
 export default ImageWall;

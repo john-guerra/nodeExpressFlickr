@@ -6,7 +6,7 @@ class SearchBar extends React.Component {
 
   constructor(props) {
     super(props);
-    props = {
+    this.state = {
         'term': ''
     }
   }
@@ -14,6 +14,7 @@ class SearchBar extends React.Component {
   search(term) {
     this.setState({term:term});
     console.log(term);
+    this.props.getimages(term);
   }
 
   render() {
@@ -22,7 +23,7 @@ class SearchBar extends React.Component {
       <div className='row'>
         <div className='col-md-12'>
             <FormGroup>
-                <FormControl type="text" placeholder="Search for an image" onChange={(evt) => this.search(evt.target.value)}/>
+                <FormControl type="text" placeholder="Search for an image" onKeyPress={(evt) => {evt.key === 'Enter' ? this.search(evt.target.value) : null}}/>
             </FormGroup>
         </div>
       </div>
