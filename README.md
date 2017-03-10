@@ -1,6 +1,6 @@
 # Flickr Rainbow Wall + Filters
 
-This is a simple app that allows users to search for a term in Flickr and sorts them by color, from low frequencies (Red), to high frequencies (Violet). **Bonus!** The app also allows to apply a set of (boring) filters to all images contained on the array.
+This is a simple app that allows users to search for a term in Flickr and sorts them by color, from low frequencies (Red), to high frequencies (Violet). **Bonus!** The app also allows to apply a set of (boring) filters to all images contained on the array. Do not forget to setup your Flickr API key and secret on ``server/api_key.txt`` and ``server/api_secret.txt``
 
 To deploy this app:
 

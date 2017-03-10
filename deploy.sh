@@ -8,7 +8,7 @@ PR= echo | ps ax | grep $POE | grep -v grep | awk '{print $1}' | xargs kill > /d
 printf "\nDeploying server...\n"
 printf "\nDownloading dependencies\n"
 
-npm install
+npm install --save
 npm run build
 nohup node server > "$POE.out" 2> "$POE.err" &
 
