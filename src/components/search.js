@@ -23,7 +23,7 @@ class SearchBar extends React.Component {
       <div className='row'>
         <div className='col-md-12'>
             <FormGroup>
-                <FormControl type="text" placeholder="Search for an image" onKeyPress={(evt) => {evt.key === 'Enter' ? this.search(evt.target.value) : null}}/>
+                <FormControl type="text" placeholder="Search for an image (Press Enter)" onKeyPress={(evt) => {evt.key === 'Enter' ? this.search(evt.target.value) : null}}/>
             </FormGroup>
         </div>
       </div>

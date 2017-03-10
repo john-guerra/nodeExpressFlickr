@@ -20,113 +20,7 @@ class App extends Component {
             'cyan' : [],
             'blue' : [],
             'violet' : [],
-            images:[
-                    {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                    {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                     {'src':'http://farm3.static.flickr.com/2128/2290130826_8a154c1f8e_q.jpg',
-                     'width':150,
-                     'height':150},
-                    ]
+            images: []
         }
     }
 
@@ -176,53 +70,56 @@ class App extends Component {
                  'norm':this.normalize,
                  'invert':this.invert};
         let images = this.state.images;
-        for(let i = 0; i < images.length; i++)
+        if(images.length > 0)
         {
-            // images[i].src = images[i].original_src;
-            jimp.read(images[i].original_src, (err, image) => {
-                console.log("sadsadasd");
-                if(filter === 'blur')
-                {
-                    image.blur(5).getBase64(jimp.MIME_PNG, (err, src) => {
-                        // var imgs = this.state.images;
-                        images[i].src = src;
-                        // cb(src);
+            for(let i = 0; i < images.length; i++)
+            {
+                // images[i].src = images[i].original_src;
+                jimp.read(images[i].original_src, (err, image) => {
+                    console.log("sadsadasd");
+                    if(filter === 'blur')
+                    {
+                        image.blur(5).getBase64(jimp.MIME_PNG, (err, src) => {
+                            // var imgs = this.state.images;
+                            images[i].src = src;
+                            // cb(src);
+                            this.setState({images:images});
+                        })
+                    }
+                    else if(filter === 'gray')
+                    {
+                        image.grayscale().getBase64(jimp.MIME_PNG, (err, src) => {
+                            // var imgs = this.state.images;
+                            images[i].src = src;
+                            // cb(src);
+                            this.setState({images:images});
+                        })
+                    }
+                    else if(filter === 'norm')
+                    {
+                        image.normalize().getBase64(jimp.MIME_PNG, (err, src) => {
+                            // var imgs = this.state.images;
+                            images[i].src = src;
+                            // cb(src);
+                            this.setState({images:images});
+                        })
+                    }
+                    else if(filter === 'invert')
+                    {
+                        image.invert().getBase64(jimp.MIME_PNG, (err, src) => {
+                            // var imgs = this.state.images;
+                            images[i].src = src;
+                            // cb(src);
+                            this.setState({images:images});
+                        })
+                    }
+                    else if(filter === "none")
+                    {
+                        images[i].src = images[i].original_src;
                         this.setState({images:images});
-                    })
-                }
-                else if(filter === 'gray')
-                {
-                    image.grayscale().getBase64(jimp.MIME_PNG, (err, src) => {
-                        // var imgs = this.state.images;
-                        images[i].src = src;
-                        // cb(src);
-                        this.setState({images:images});
-                    })
-                }
-                else if(filter === 'norm')
-                {
-                    image.normalize().getBase64(jimp.MIME_PNG, (err, src) => {
-                        // var imgs = this.state.images;
-                        images[i].src = src;
-                        // cb(src);
-                        this.setState({images:images});
-                    })
-                }
-                else if(filter === 'invert')
-                {
-                    image.invert().getBase64(jimp.MIME_PNG, (err, src) => {
-                        // var imgs = this.state.images;
-                        images[i].src = src;
-                        // cb(src);
-                        this.setState({images:images});
-                    })
-                }
-                else if(filter === "none")
-                {
-                    images[i].src = images[i].original_src;
-                    this.setState({images:images});
-                }
-            });
+                    }
+                });
+            }
         }
         // console.log(images);
 
@@ -244,7 +141,7 @@ class App extends Component {
     }
 
     getimages(term) {
-        console.log("Yei!");
+        // console.log("Yei!");
         this.setState({'images':[]});
         var completed_req = 0;
         var responses = [];
