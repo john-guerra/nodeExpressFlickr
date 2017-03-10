@@ -9,9 +9,16 @@ class App extends Component {
     this.state = {
       stringToQuery: "",
       componentMounted: false,
-      photos: [],
-      colors: ["red","orange", "yellow", "green", "blue","indigo", "violet" ],
-      rows: [0,1,2,3,4,5]
+      photos: [
+        "red": [],
+        "orange": [],
+        "yellow": [],
+        "green": [],
+        "blue": [],
+        "indigo": [],
+        "violet": []
+        ],
+      colors: ["red","orange", "yellow", "green", "blue","indigo", "violet" ]
     }
   }
 
@@ -29,8 +36,12 @@ class App extends Component {
         throw new Error('Network response was not ok.');
       })
       .then(function(data) {
-        console.log("Gotit!");
-        this.setState({photos: data.photos})
+        console.log("Got em!");
+        this.setState({
+          photos: update(this.state.photos, {
+            color: {$set: data.photos.photo}
+          })
+        });
       })
       .catch(function(error) {
         console.log('There has been a problem with your fetch operation: ' + error.message);
@@ -49,11 +60,13 @@ class App extends Component {
         "_s.jpg";
     }
 
-  changeQuery(newString){
-    this.setState({stringToQuery: newString});
-
+  searchAll(){
     if (this.state.componentMounted){
-      this.makeQuery('red');
+      var i, c;
+      for (i=0; i<this.state.colors.lenght; i++){
+        c = this.state.colors[i];
+        this.makeQuery(c);
+      }
     }
   }
 
@@ -65,33 +78,40 @@ class App extends Component {
 
         <div className="row">
           <h1>FLICKR RAINBOW</h1>
-          <p>
-            by: MCRG
-          </p>
+          <h3> by: MCRG </h3>
         </div>
 
         <br />
 
         <div className="row">
-          <input type="text" value={this.state.stringToQuery} onChange={(event) => { this.changeQuery(event.target.value) } } />
-          {/* Componente: Fotos
-          <div className="col-md-8 col-xs-12">
-            <ListarItems ref={(input) => { this.listarItemsChild = input; }} user={this.state.user} />
-          </div>
-          */}
+          <input type="text" value={this.state.stringToQuery} onChange={(event) => { this.setState({stringToQuery: event.target.value}) } } />
+          <button className="btn btn-primary btn-xs pull-right" onClick={this.searchAll.bind(this)}> Buscar </button>
         </div>
 
         <div className="row">
-          <br />
+          <div className="col-md-2 col-xs-2"> </div>
           {
-            this.state.photos.map(function(ph, i) {
-              var url = this.getUrl(ph);
+            this.state.colors.map(function(col, i) {
+              var photos_col = this.state.photos[col];
               return (
-                <img src={url} alt="photo" style="width:200px;height:200px;"></img>
+                <div key={i} className="col-md-1 col-xs-1">
+                  {
+                    photos_col != null &&
+                    photos_col.map(function(ph, j) {
+                      var url = this.getUrl(ph);
+                      return (
+                        <div>
+                          <img key={j} src={url} alt="result of column color" style={{width:"100vh"}}></img>
+                          <br />
+                        </div>
+                      );
+                    }, this)
+                  }
+                </div>
               );
             }, this)
           }
-          <br />
+          <div className="col-md-3 col-xs-3"> </div>
         </div>
 
       </div>
