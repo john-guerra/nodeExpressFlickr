@@ -10,7 +10,9 @@ class App extends Component {
       stringToQuery: "",
       componentMounted: false,
       photos: [],
-      colors: ["red","orange", "yellow", "green", "blue","indigo","violet" ]
+      colors: ["red","orange", "yellow", "green", "blue","indigo","violet" ],
+      colors_order: [],
+      background_color: "white"
     }
   }
 
@@ -41,8 +43,12 @@ class App extends Component {
       .then(function(data) {
         console.log("Got em! " + this.state.stringToQuery + " " + c);
         var phs = this.state.photos;
+        var nco = this.state.colors_order;
         phs.push(data.photos.photo);
+        nco.push(c);
         this.setState({ photos: phs });
+        this.setState({ colors_order: nco });
+        this.setState({ background_color: c});
       }.bind(this))
       .catch(function(error) {
         console.log('There has been a problem with your fetch operation: ' + error.message);
@@ -51,27 +57,29 @@ class App extends Component {
 
   searchAll(){
     if (this.state.componentMounted){
+      this.setState({background_color: "white" });
       this.setState({photos: [] });
+      this.setState({colors_order: [] });
       var i, c;
       for (i=0; i<7; i++){
         c = this.state.colors[i];
-        console.log("color: "+c+" "+i);
         this.makeQuery(c);
       }
     }
   }
 
   render() {
+    var styleBG = { backgroundColor: this.state.background_color };
     return(
-      <div>
+      <div style={styleBG}>
 
         <br />
 
         <div className="row">
           <div className="col-md-2 col-xs-2"> </div>
           <div className="col-md-10 col-xs-10">
-            <h1>FLICKR RAINBOW</h1>
-            <h3> by: MCRG </h3>
+            <h1>Flickr RAINBOW</h1>
+            <h4> by: Maria Camila Remolina Gutiérrez </h4>
           </div>
         </div>
 
@@ -84,6 +92,9 @@ class App extends Component {
             <button className="btn btn-primary btn-xs pull-right" onClick={this.searchAll.bind(this)}> Buscar </button>
           </div>
         </div>
+
+        <br />
+        <br />
 
         <div className="row">
           <div className="col-md-2 col-xs-2"> </div>
@@ -99,6 +110,7 @@ class App extends Component {
                       return (
                         <div>
                           <img key={j} src={url} alt="result of column color" style={{width:"100%"}}></img>
+                          <br />
                           <br />
                         </div>
                       );
