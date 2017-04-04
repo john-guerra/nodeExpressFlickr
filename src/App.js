@@ -60,11 +60,10 @@ class App extends Component {
       this.setState({background_color: "black" });
       this.setState({photos: [] });
       this.setState({colors_order: [] });
-      var i, c;
-      for (i=0; i<7; i++){
-        c = this.state.colors[i];
+      // John: más limpio así, no?
+      this.state.colors.forEach((c) => {
         this.makeQuery(c);
-      }
+      })
     }
   }
 
