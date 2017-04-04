@@ -1,4 +1,5 @@
 import React from 'react';
+// John: Mucho tramposo!, con razn!
 import Gallery from 'react-photo-gallery';
 
 class ImageWall extends React.Component {
